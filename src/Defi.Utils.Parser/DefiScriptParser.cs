@@ -26,9 +26,21 @@ namespace Defi.Utils.Parser
             {
                 return AnyAccountToAccount.Parse(pos, script);
             }
-            else if (txType == DefiTransactions.CustomTxType.AccountToAccount)
+            if (txType == DefiTransactions.CustomTxType.AccountToAccount)
             {
                 return AccountToAccount.Parse(pos, script);
+            }
+            if (txType == DefiTransactions.CustomTxType.AccountToUtxos)
+            {
+                return AccountToUtxo.Parse(pos, script);
+            }
+            if (txType == DefiTransactions.CustomTxType.PoolSwap)
+            {
+                return PoolSwap.Parse(pos, script);
+            }
+            if (txType == DefiTransactions.CustomTxType.AddPoolLiquidity)
+            {
+                return AddLiquidity.Parse(pos, script);
             }
 
 
